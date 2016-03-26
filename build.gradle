@@ -21,7 +21,6 @@ version = '0.1.0'
 mainClassName = "example.Application"
 
 applicationDefaultJvmArgs = []
-// ["-Xmx8G", "-XX:+UseG1GC", "-XX:+UseStringDeduplication"], "-Xss32M"]
 
 run {
     args = []
