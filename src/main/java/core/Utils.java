@@ -21,7 +21,7 @@ public class Utils {
 		text = text.replaceAll("[❴]", "{").replaceAll("[❵]", "}");
 
 		text = text.replaceAll("[‹›«»⟨⟩⟪⟫❮❯❬❭]", "\"");
-		text = text.replaceAll("[“”‟„\"″˝¨❝❞].", "\"");
+		text = text.replaceAll("[“”‟„\"″˝¨❝❞]", "\"");
 		text = text.replaceAll("[‘’‛'′´`˙︎❛❜]", "'").replaceAll("''", "\"");
 		text = text.replaceAll("[°¸˛˚ªºˉˆ˘ˇ]", "°");
 		text = text.replaceAll("[¯\u00AD–‑—⁊\\-‒]", "-");

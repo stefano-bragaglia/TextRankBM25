@@ -4,8 +4,8 @@ import java.util.List;
 
 import core.Parser;
 import core.TextRank;
+import core.Utils;
 import core.parsers.BasicParser;
-import core.parsers.TopicParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -186,9 +186,9 @@ public class Application {
 	public static void main(String[] args) {
 		Parser parser;
 		parser = new BasicParser();
-		parser = new TopicParser();
+//		parser = new TopicParser();
 		TextRank textrank = new TextRank.Builder(parser).setEpsilon(0.1).build();
-		String content = MORE.replaceAll("[\\t\\f]+", " ");
+		String content = Utils.normalise(MORE);
 
 		System.out.println("CONTENT");
 		System.out.println("-------");
@@ -206,7 +206,7 @@ public class Application {
 		System.out.println("SUMMARY");
 		System.out.println("-------");
 		List<String> sentences = textrank.getSentences(content, 0);
-		System.out.println(String.join("\n", sentences));
+		System.out.println(String.join("\n", Utils.reorder(content, sentences)));
 		System.out.println();
 
 		logger.info("Done.");
