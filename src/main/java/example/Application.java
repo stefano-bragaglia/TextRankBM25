@@ -5,6 +5,7 @@ import java.util.List;
 import core.Parser;
 import core.TextRank;
 import core.parsers.BasicParser;
+import core.parsers.TopicParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,10 +61,134 @@ public class Application {
 			"Other Jaguar models, including XF and XJ saloons will also feature in the Beckham campaign to present " +
 			"the full brand line-up to the Chinese consumer.";
 
+	public static String MORE = "Ecuador earthquake: 10,000 troops deployed as rescue begins\n" +
+			"\n" +
+			"Amateur video shows the moment the earthquake struck\n" +
+			"Rescue efforts are under way in Ecuador after the country suffered its worst earthquake in decades, with" +
+			" " +
+			"at least 77 people confirmed dead.\n" +
+			"\n" +
+			"Some 10,000 troops and 3,500 police are being deployed in the affected areas.\n" +
+			"\n" +
+			"The powerful magnitude 7.8 quake struck early on Saturday evening and was felt as far away as " +
+			"neighbouring Colombia.\n" +
+			"\n" +
+			"Coastal areas in the north-west were closest to the epicentre and officials say the death toll is likely" +
+			" " +
+			"to rise as information begins to come in.\n" +
+			"\n" +
+			"\"These are very difficult moments,\" Ecuador's Vice-President Jorge Glas said.\n" +
+			"\n" +
+			"\"We have information that there are injured people who are trapped [under rubble] in different " +
+			"districts" +
+			" and we are getting ready to rescue them.\"\n" +
+			"\n" +
+			"In pictures: Ecuador earthquake\n" +
+			"Ecuador quake - your stories\n" +
+			"History of deadly earthquakes\n" +
+			"Can quakes be predicted?\n" +
+			"Helicopters and buses are ferrying troops north but have been hampered by landslides.\n" +
+			"\n" +
+			"Mr Glas said food and other essentials were being handed out and international aid was also beginning, " +
+			"with the first coming from Venezuela and Mexico.\n" +
+			"\n" +
+			"President Rafael Correa, who is flying back from a trip to Italy, has decreed a state of emergency, " +
+			"calling on his country to be \"calm and united\".\n" +
+			"\n" +
+			" Map\n" +
+			"At least 500 people were injured in the quake, which was felt across the country.\n" +
+			"\n" +
+			"Widespread severe damage is reported, with a bridge destroyed as far south as Guayaquil about 300km (190" +
+			" " +
+			"miles) away.\n" +
+			"\n" +
+			"Gabriel Alcivar, mayor of Pedernales, close to the epicentre, said the \"entire town\" had been " +
+			"flattened" +
+			".\n" +
+			"\n" +
+			"\"We're trying to do the most we can but there's almost nothing we can do,\" he added, warning that " +
+			"looting had broken out.\n" +
+			"\n" +
+			" Rubble in the Ecuadorian city of Manta after an earthquakeAFP\n" +
+			"There are fears the death toll could rise with the worst hit areas yet to be reached\n" +
+			" Rescue workers examine a destroyed car after the collapse of a bridge in Guayaquil, EcuadorAFP\n" +
+			"A road bridge collapsed in Guayaquil, about 300km south of the epicentre of the quake\n" +
+			" Quake damage in Pedernales, Ecuador, 17 AprilAP\n" +
+			"Looking for survivors in Pedernales. Its mayor said the whole town had collapsed\n" +
+			"In badly hit Manta, one woman said: \"The third floor collapsed on top of us.\n" +
+			"\n" +
+			"\"They are all there, my family, my sister, my children. They are all there, there are a lot of people." +
+			" " +
+			"My God, may the help arrive.\"\n" +
+			"\n" +
+			"Cristian Ibarra Santillan was in the capital Quito when the quake struck.\n" +
+			"\n" +
+			"\"There had been some small tremors going on for about two or three months and I thought it was one of " +
+			"those but after about 20, 30 seconds it started to get really strong,\" he told the BBC.\n" +
+			"\n" +
+			"\"And I grabbed my dog and I hid under the table. But then I realised that it wasn't going away so I " +
+			"just" +
+			" ran with him outside.\"\n" +
+			"\n" +
+			"Stephan Kuffner, who lives in Quito, says he felt the vibrations for minutes after the quake struck\n" +
+			"A man was killed when his car was crushed beneath a collapsed bridge in Guayaquil\n" +
+			"The quake is Ecuador's largest since 1979. More than 130 aftershocks have followed.\n" +
+			"\n" +
+			"The US Geological Survey said the earthquake struck at a fairly shallow depth of 19.2km (11.9 miles), " +
+			"about 27km from Muisne in a sparsely populated area.\n" +
+			"\n" +
+			"David Rothery, a professor of geosciences at The Open University, said Ecuador's quake was about six " +
+			"times as powerful as the earthquake that struck southern Japan on Saturday.\n" +
+			"\n" +
+			"The quake was also felt in Colombia, where patients in a clinic in the city of Cali were evacuated from" +
+			" " +
+			"the building.\n" +
+			"\n" +
+			"Analysis: Jonathan Amos, BBC science correspondent\n" +
+			"\n" +
+			"Ecuador is well used to earthquakes. There have been seven magnitude-7.0 or greater events within 250km" +
+			" " +
+			"of this latest tremor since 1900. And some of these have resulted in very considerable loss of life, not" +
+			" " +
+			"just from the shaking but also from tsunami waves.\n" +
+			"\n" +
+			"The country sits on the so-called \"Ring of Fire\" - the arc of high seismic activity that extends right" +
+			" " +
+			"around the Pacific basin. At its location, Ecuador fronts the boundary between the Nazca and South " +
+			"American tectonic plates.\n" +
+			"\n" +
+			"These are vast slabs of the Earth's surface that grind past each other at a rate of about 65mm per year." +
+			" " +
+			"The Nazca plate, which makes up the Pacific Ocean floor in this region, is being pulled down (subducted)" +
+			" " +
+			"and under the South American coast.\n" +
+			"\n" +
+			"It is a process that has helped build the Andes and Ecuador's many volcanoes, including the mighty " +
+			"Chimborazo.\n" +
+			"\n" +
+			"Models that try to forecast the likely casualty numbers from the nature of the quake and local building" +
+			" " +
+			"construction methods indicate this event could be very serious, with the number of deaths running into " +
+			"the hundreds.\n" +
+			"\n" +
+			"Are you in Ecuador? Have you been affected by the earthquake? Email haveyoursay@bbc.co.uk with your " +
+			"experience.\n" +
+			"\n" +
+			"Please include a contact number if you are willing to speak to a BBC journalist. You can contact us in " +
+			"the following ways:\n" +
+			"\n" +
+			"Whatsapp: +44 7525 900971\n" +
+			"Send pictures/video to yourpics@bbc.co.uk\n" +
+			"Or Upload your pictures/video here\n" +
+			"Tweet: @BBC_HaveYourSay\n" +
+			"Send an SMS or MMS to 61124 or +44 7624 800 100";
+
 	public static void main(String[] args) {
-		Parser parser = new BasicParser();
+		Parser parser;
+		parser = new BasicParser();
+		parser = new TopicParser();
 		TextRank textrank = new TextRank.Builder(parser).setEpsilon(0.1).build();
-		String content = CONTENT.replaceAll("[\\t\\f]+", " ");
+		String content = MORE.replaceAll("[\\t\\f]+", " ");
 
 		System.out.println("CONTENT");
 		System.out.println("-------");
@@ -74,7 +199,7 @@ public class Application {
 
 		System.out.println("KEYWORDS");
 		System.out.println("--------");
-		List<String> keywords = textrank.getKeywords(content, 0);
+		List<String> keywords = textrank.getKeywords(content, Integer.MAX_VALUE);
 		System.out.println(String.join(", ", keywords));
 		System.out.println();
 
