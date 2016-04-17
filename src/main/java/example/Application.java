@@ -5,7 +5,7 @@ import java.util.List;
 import core.Parser;
 import core.TextRank;
 import core.Utils;
-import core.parsers.BasicParser;
+import core.parsers.GroupParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -185,8 +185,8 @@ public class Application {
 
 	public static void main(String[] args) {
 		Parser parser;
-		parser = new BasicParser();
-//		parser = new TopicParser();
+//		parser = new BasicParser();
+		parser = new GroupParser();
 		TextRank textrank = new TextRank.Builder(parser).setEpsilon(0.1).build();
 		String content = Utils.normalise(MORE);
 

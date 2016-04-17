@@ -38,7 +38,14 @@ public class Utils {
 			if (!split[i].isEmpty() && !split[i].endsWith("!") && !split[i].endsWith("?") &&
 					!split[i].endsWith(",") && !split[i].endsWith(";") &&
 					!split[i].endsWith(".") && !split[i].endsWith(":")) {
-				split[i] = split[i] += ".";
+				split[i] += ".";
+			} else if (split[i].endsWith("\"")) {
+				String content = split[i].substring(0, split[i].length() - 1).trim();
+				if (!content.isEmpty() && !content.endsWith("!") && !content.endsWith("?") &&
+						!content.endsWith(",") && !content.endsWith(";") &&
+						!content.endsWith(".") && !content.endsWith(":")) {
+					split[i] = content + ".\"";
+				}
 			}
 		}
 		text = String.join("\n", split);
