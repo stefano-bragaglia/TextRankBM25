@@ -129,10 +129,12 @@ public class TextRank {
 					int size = matrix.get(adjacent).size();
 					if (!token.equals(adjacent) && size > 0) {
 						double value = dumping * ranks.getOrDefault(adjacent, 0.0) / size;
-						current.put(token, value + current.getOrDefault(token, 1.0 - dumping));
+						current.put(token, (Double.isNaN(value) ? Double.MIN_VALUE : value) +
+								current.getOrDefault(token, 1.0 - dumping));
 					}
 				}
-				max_diff = Math.max(max_diff, current.getOrDefault(token, 0.0) - ranks.getOrDefault(token, 0.0));
+				double val = current.getOrDefault(token, 0.0) - ranks.getOrDefault(token, 0.0);
+				max_diff = Math.max(max_diff, Double.isNaN(val) ? Double.MIN_VALUE : val);
 			}
 			ranks = current;
 		}
@@ -187,6 +189,7 @@ public class TextRank {
 			double[] scores = bm25.isSimilar(document.get(i));
 			weight[i] = scores;
 			weight_sum[i] = Arrays.stream(scores).sum() - scores[i];
+			weight_sum[i] = Double.isNaN(weight_sum[i]) ? Double.MIN_VALUE : weight_sum[i];
 			vertex[i] = 1.0;
 		}
 
@@ -200,9 +203,11 @@ public class TextRank {
 				for (int k = 0; k < size; k++) {
 					if (j != k && 0 != weight_sum[k]) {
 						m[j] += (size * weight[k][j] / weight_sum[k] * vertex[k]);
+						m[j] = Double.isNaN(m[j]) ? Double.MIN_VALUE : m[j];
 					}
 				}
 				double diff = Math.abs(m[j] - vertex[j]);
+				diff = Double.isNaN(diff) ? Double.MIN_VALUE : diff;
 				if (diff > max_diff) {
 					max_diff = diff;
 				}

@@ -48,10 +48,12 @@ public class BM25Plus {
 					df.put(word, 1 + df.getOrDefault(word, 0));
 				}
 			}
-			this.avgdLength = total / size;
+			double avg = total / size;
+			this.avgdLength = Double.isNaN(avg) ? Double.MIN_VALUE : avg;
 			for (String word : df.keySet()) {
 				int freq = df.get(word);
-				this.idf.put(word, Math.log(size - freq + 0.5) - Math.log(freq + 0.5));
+				double val = Math.log(size - freq + 0.5) - Math.log(freq + 0.5);
+				this.idf.put(word, Double.isNaN(val) ? Double.MIN_VALUE : val);
 			}
 		} else {
 			this.avgdLength = 0.0;
@@ -120,9 +122,8 @@ public class BM25Plus {
 			if (tf.containsKey(word)) {
 				int d = document.get(index).size();
 				Integer wf = tf.get(word);
-				score += (idf.get(word) * wf * (k1 + 1)
-						/ (wf + k1 * (1 - b + b * d
-						/ avgdLength)));
+				double val = (idf.get(word) * wf * (k1 + 1) / (wf + k1 * (1 - b + b * d / avgdLength)));
+				score += Double.isNaN(val) ? Double.MIN_VALUE : val;
 			}
 		}
 		return score;
